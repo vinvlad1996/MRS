@@ -1,0 +1,19 @@
+include ../../../views/components/button/component
+
+append style
+  link(href=require('Views/components/package-card/styles.scss') rel='stylesheet')
+
+mixin PackageCard (props = {})
+  .package-card(class!='package-card_view_' + props.view, class!='package-card_size_' + props.size)
+    .package-card__title(class!='title_type_' + props.type)=props.title
+    .package-card__time
+      .package-card__time-title Studio Time
+      .package-card__time-hours=props.hours
+    .package-card__standart-price
+      .package-card__standart-price-title Standart price
+      .package-card__standart-price-cost=props.cost
+    .package-card__personal-price
+      .package-card__personal-price-title Your price
+      .package-card__personal-price-cost=props.personalCost
+    +Button({ view: props.view === 'default'? 'filled': 'white', size: 'large', content: 'save $590' })(class='package-card__button')
+    .package-card__note(class!='note_margin_' + props.margin) *Engineer fee is not included

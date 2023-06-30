@@ -1,0 +1,44 @@
+append style
+  link(href=require('Views/components/audio-player/styles.scss') rel='stylesheet')
+
+append script
+  script(src=require('Views/components/audio-player/script.js') , type='text/javascript')
+
+mixin AudioPlayer(props = {})
+  .audioplayer(
+    data-type='audioplayer',
+    data-id=props.id,
+    data-source-src= props.source.src,
+    data-source-type= props.source.type,
+    data-title=props.title,
+    data-duration=props.duration
+  )
+    audio(src = props.source.src, type=props.source.type)
+    .audioplayer__controls
+      img.audioplayer__arrow(
+        src=require('Images/icons/player/previous.svg'),
+        data-type='audioplayerPrevButton'
+        class=props.options ? '' : 'audioplayer__control--hidden'
+      )
+
+      .audioplayer__pause.audioplayer__control--hidden(data-type='audioplayerPauseBtn')
+        img(src=require('Images/icons/player/pause.svg'), data-svg='audioplayerPauseSvg')
+      .audioplayer__play(data-type='audioplayerPlayBtn')
+        img(src=require('Images/icons/player/play.svg'), data-svg='audioplayerPlaySvg')
+
+      img.audioplayer__arrow(
+        src=require('Images/icons/player/next.svg'),
+        data-type='audioplayerNextButton',
+        class=props.options ? '' : 'audioplayer__control--hidden'
+      )
+
+    .audioplayer__track
+      .audioplayer__title(data-type='audioplayerTrackTitle')='TRACK NAME'
+
+      .audioplayer__progress
+        input(type='range', value=0, step="0.01" data-type="audioplayerTrackProgressRange")
+        .audioplayer__progress-fill(data-type="audioplayerTrackProgressPosition")
+
+      .audioplayer__time
+        .audioplayer__timer(data-type='audioplayerTrackPosition') 00:00
+        .audioplayer__duration(data-type='audioplayerTrackDuration')= props.duration || '00:00'

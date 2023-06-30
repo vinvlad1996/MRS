@@ -1,0 +1,10 @@
+append style
+  link(href=require('Views/components/gearlist-card/styles.scss') rel='stylesheet')
+
+mixin GearlistCard (props = {})
+  .gearlist-card(class!='gearlist-card_position_' + props.position)
+    .gearlist-card__title=props.title
+    ul.gearlist-card__list
+      li.gearlist-card__item=props.item1
+      li.gearlist-card__item=props.item2
+      li.gearlist-card__item=props.item3

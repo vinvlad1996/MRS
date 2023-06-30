@@ -1,0 +1,25 @@
+include ../../components/audio-player/component
+
+append style
+  link(href=require('Views/components/audio-player/styles.scss') rel='stylesheet')
+
+append script
+  script(src=require('Views/components/audio-tracklist/script.js'), type='text/javascript')
+
+mixin AudioPlayerWithTracklist(props = {})
+  if(props.playlist[0])
+    div(data-type='audioplayerWithTracklist')
+      +AudioPlayer({...props.playlist[0], options: true})
+
+      .playlist(data-type='audioplayerTracklist')
+        for el in props.playlist
+          .playlist__item(
+            data-id=el.id
+            data-source-src=el.source.src,
+            data-source-type=el.source.type,
+            data-title=el.title,
+            data-duration=el.duration
+            data-type='audioplayerTracklistItem'
+          )
+            .playlist__item-title= el.title
+            .playlist__item-duration= el.duration

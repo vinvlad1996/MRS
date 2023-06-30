@@ -1,0 +1,47 @@
+append style
+  link(href=require('Views/components/equipment-cards/styles.scss') rel='stylesheet')
+
+mixin EquipmentCards (props={})
+  .equipment
+    .equipment__cards(class!='equipment__cards_size_' + props.size)
+      .equipment__cards-item
+        .equipment__cards-picture(class!='equipment__cards-picture_view_' + props.view)
+          img(src=require('Images/icons/gearlist/icon-1.svg'))
+        .equipment__cards-title(class!='equipment__cards-title_position_' + props.position)=props.title1
+      .equipment__cards-item
+        .equipment__cards-picture(class!='equipment__cards-picture_view_' + props.view)
+          img(src=require('Images/icons/gearlist/icon-2.svg'))
+        .equipment__cards-title(class!='equipment__cards-title_position_' + props.position)=props.title2
+      .equipment__cards-item
+        .equipment__cards-picture(class!='equipment__cards-picture_view_' + props.view)
+          img(src=require('Images/icons/gearlist/icon-3.svg'))
+        .equipment__cards-title(class!='equipment__cards-title_position_' + props.position)=props.title3
+      .equipment__cards-item
+        .equipment__cards-picture(class!='equipment__cards-picture_view_' + props.view)
+          img(src=require('Images/icons/gearlist/icon-4.svg'))
+        .equipment__cards-title(class!='equipment__cards-title_position_' + props.position)=props.title4
+      .equipment__cards-item
+        .equipment__cards-picture(class!='equipment__cards-picture_view_' + props.view)
+          img(src=require('Images/icons/gearlist/icon-5.svg'))
+        .equipment__cards-title(class!='equipment__cards-title_position_' + props.position)=props.title5
+    .equipment__cards(class!='equipment__cards_size_' + props.size)
+      .equipment__cards-item
+        .equipment__cards-picture(class!='equipment__cards-picture_view_' + props.view)
+          img(src=require('Images/icons/gearlist/icon-6.svg'))
+        .equipment__cards-title(class!='equipment__cards-title_position_' + props.position)=props.title6
+      .equipment__cards-item
+        .equipment__cards-picture(class!='equipment__cards-picture_view_' + props.view)
+          img(src=require('Images/icons/gearlist/icon-7.svg'))
+        .equipment__cards-title(class!='equipment__cards-title_position_' + props.position)=props.title7
+      .equipment__cards-item
+        .equipment__cards-picture(class!='equipment__cards-picture_view_' + props.view)
+          img(src=require('Images/icons/gearlist/icon-8.svg'))
+        .equipment__cards-title(class!='equipment__cards-title_position_' + props.position)=props.title8
+      .equipment__cards-item
+        .equipment__cards-picture(class!='equipment__cards-picture_view_' + props.view)
+          img(src=require('Images/icons/gearlist/icon-9.svg'))
+        .equipment__cards-title(class!='equipment__cards-title_position_' + props.position)=props.title9
+      .equipment__cards-item
+        .equipment__cards-picture(class!='equipment__cards-picture_view_' + props.view)
+          img(src=require('Images/icons/gearlist/icon-10.svg'))
+        .equipment__cards-title(class!='equipment__cards-title_position_' + props.position)=props.title10

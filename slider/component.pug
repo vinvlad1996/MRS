@@ -1,0 +1,28 @@
+include ../../../views/components/picture/component
+include ../../../views/components/video-player/component
+
+append style
+  link(href=require('swiper/css') rel='stylesheet')
+  link(href=require('Views/components/slider/styles.scss') rel='stylesheet')
+
+append script
+  script(src=require('Views/components/slider/script'), type='text/javascript')
+
+mixin Slider (props = {})
+  .swiper
+    .swiper-wrapper.swiper__wrapper
+      for slide in props.slides
+        .swiper-slide.swiper__slide
+          if slide.content.type
+            if slide.content.type === 'picture'
+              +Picture(slide.content.options)
+            if slide.content.type === 'video'
+              +VideoPlayer(slide.content.options)
+          else
+            div= slide.content
+
+    .swiper__controls
+      .swiper-button-prev.swiper__button
+        img(src=require("Images/icons/slider/prev-button.svg"))
+      .swiper-button-next.swiper__button
+        img(src=require("Images/icons/slider/next-button.svg"))

@@ -1,0 +1,54 @@
+@import 'src/assets/styles/typography';
+@import 'src/assets/styles/media';
+
+.gearlist-card {
+  height: 405px;
+  display: flex;
+  justify-content: center;
+  padding: 26px 0 0 45px;
+  flex-direction: column;
+  background: linear-gradient(90deg, #0F0F0F 5.5%, rgba(15, 15, 15, 0.73) 27.45%, rgba(15, 15, 15, 0.43) 56.31%, rgba(15, 15, 15, 0) 100%);
+
+  &__title {
+    @include mobile-header-2;
+    margin-bottom: 12px;
+  }
+
+  &__list {
+    @include text-3;
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-bottom: 15px;
+    }
+  }
+
+  @include tablet {
+    &_position_right {
+      text-align: end;
+      padding-right: 46px;
+    }
+
+    &_position_left {
+      text-align: start;
+      padding-left: 62px;
+    }
+  }
+
+  @include desktop {
+    &__title {
+      @include tablet-header-1;
+    }
+
+    &_position_right {
+      margin: 0 auto;
+      max-width: 955px;
+    }
+
+    &_position_left {
+      margin: 0 auto;
+      max-width: 1283px;
+    }
+  }
+}

@@ -1,0 +1,150 @@
+@import 'src/assets/styles/typography';
+@import 'src/assets/styles/media';
+
+.package-card {
+  padding: 10px 8px 16px 12px;
+  border-radius: 20px;
+  width: 320px;
+  position: relative;
+
+  &__title {
+    height: 34px;
+    @include desktop-header-6;
+    margin-bottom: 9px;
+  }
+
+  .title {
+    &_type_first {
+      background: url(Images/icons/star.svg) no-repeat center right -6px;
+    }
+
+    &_type_second {
+      background: url(Images/icons/star.svg) no-repeat center right 34px,
+                  url(Images/icons/star.svg) no-repeat center right -6px;
+    }
+
+    &_type_third {
+      background: url(Images/icons/star.svg) no-repeat top -5px right 24px,
+                  url(Images/icons/star.svg) no-repeat top -5px right -19px,
+                  url(Images/icons/star.svg) no-repeat top -5px right 66px;
+    }
+
+    @include tablet {
+      &_type_first {
+        background: url(Images/icons/star.svg) no-repeat top -9px right -4px;
+      }
+
+      &_type_second {
+        background: url(Images/icons/star.svg) no-repeat top -5px right 32px,
+                    url(Images/icons/star.svg) no-repeat top -5px right -10px;
+      }
+
+      &_type_third {
+        background: url(Images/icons/star.svg) no-repeat top -4px right 28px,
+        url(Images/icons/star.svg) no-repeat top -4px right -14px,
+        url(Images/icons/star.svg) no-repeat bottom 4px right 6px;
+      }
+    }
+
+    @include desktop {
+      &_type_first {
+        background: url(Images/icons/star.svg) no-repeat top -9px right -2px;
+      }
+
+      &_type_third {
+        background: url(Images/icons/star.svg) no-repeat top -4px right 30px,
+                    url(Images/icons/star.svg) no-repeat top -4px right -12px,
+                    url(Images/icons/star.svg) no-repeat bottom 4px right 8px;
+      }
+    }
+  }
+
+  &__time {
+    display: flex;
+    justify-content: space-between;
+    @include header-7;
+    border-bottom: 1px solid $color-accent3;
+    border-top: 1px solid $color-accent3;
+    padding: 20px 0 19px;
+  }
+
+  &__standart-price {
+    @include header-5;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 22.5px;
+    margin-bottom: 10px;
+  }
+
+  &__personal-price {
+    @include header-7;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid $color-accent3;
+    padding-bottom: 19px;
+  }
+
+  &__button {
+    width: 100%;
+    margin: 20px 0 18px 0;
+  }
+
+  &__note {
+    @include little-text;
+    text-align: center;
+    opacity: 0.6;
+  }
+
+  &_view_default {
+    background: $color-accent5;
+  }
+
+  &_view_main {
+    @include fx1;
+  }
+
+  @include tablet {
+    padding: 10px 20px 12px 24px;
+    width: 360px;
+
+    &_size_big {
+      padding: 28px 36px 26px 40px;
+      width: 406px;
+      height: 496px;
+    }
+
+    &__title {
+      @include desktop-header-2;
+      height: 98px;
+      word-wrap: wrap;
+      margin-bottom: 19px;
+      width: 330px;
+    }
+
+    &__time {
+      @include desktop-header-7;
+    }
+
+    &__personal-price {
+      @include desktop-header-7;
+    }
+
+    &__button {
+      margin: 20px 0 14px 0;
+    }
+
+    @include desktop {
+      &_size_big {
+        margin: 0 13px 0 22px;
+      }
+    }
+  }
+
+  .note {
+    @include tablet {
+      &_margin_large {
+        margin-top: 37px;
+      }
+    }
+  }
+}

@@ -1,0 +1,241 @@
+@import '../../../assets/styles/typography';
+@import '../../../assets/styles/media';
+
+@mixin range-thumb {
+  appearance: none;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  width: 13px;
+  height: 13px;
+  border-radius: 10px;
+  background-image: url("Images/icons/player/sliderThumb.svg");
+  background-size: 100% 100%;
+  -webkit-background-size: 100% 100%;
+  cursor: pointer;
+  margin-top: -2px;
+  margin-left: -2px;
+  z-index: 1;
+  opacity: 0;
+  transition: 0.2s;
+
+  &:hover {
+    background-image: url("Images/icons/player/sliderThumbHovered.svg");
+  }
+}
+
+.audioplayer {
+  display: flex;
+  gap: 18px;
+  max-width: 750px;
+  flex-wrap: wrap;
+  @include mobile() {
+    padding: 0 10px;
+  }
+  @include tablet() {
+    padding: 0 10px;
+    flex-direction: row;
+  }
+  @include desktop() {
+    padding: 0 12px 0 10px;
+  }
+
+  &__controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 3px;
+    @include tablet() {
+      margin-bottom: 5px;
+    }
+  }
+
+  &__arrow {
+    cursor: pointer;
+    border-radius: 0;
+
+    &:last-of-type {
+      margin-right: 24px;
+    }
+
+    &:first-of-type {
+      margin-left: 6px;
+    }
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  &__play, &__pause {
+    @include fx1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    min-height: 60px;
+    max-height: 60px;
+    max-width: 60px;
+    min-width: 60px;
+    cursor: pointer;
+    background-color: $color-accent4;
+    transition: 0.2s;
+
+    &:hover {
+      background-image: none;
+    }
+
+    img {
+      max-height: 28px;
+      width: 100%;
+      border-radius: 0;
+    }
+  }
+
+  &__play {
+    img {
+      margin-left: 4px;
+    }
+  }
+
+  &__control--hidden {
+    display: none;
+  }
+
+  &__track {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    min-width: 166px;
+  }
+
+  &__title {
+    font-size: 20px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    @include mobile() {
+      margin-bottom: 10px;
+    }
+    @include tablet() {
+      margin-bottom: 10px;
+    }
+  }
+
+  &__progress {
+    position: relative;
+    width: 100%;
+    height: 8px;
+    margin-bottom: 6px;
+    border-radius: 20px;
+
+    input[type='range'] {
+      appearance: none;
+      position: absolute;
+      -webkit-appearance: none !important;
+      background-color: $color-accent4;
+      height: 8px;
+      width: 100%;
+      cursor: pointer;
+      border-radius: 20px;
+    }
+
+    input[type='range']::-webkit-slider-runnable-track {
+      height: 10px;
+      -webkit-appearance: none;
+      z-index: 1;
+    }
+
+    input[type=range]::-ms-track {
+      height: 10px;
+      -webkit-appearance: none;
+      z-index: 1;
+    }
+
+    input[type=range]::-webkit-slider-thumb {
+      @include range-thumb
+    }
+
+    input[type=range]::-moz-range-thumb {
+      @include range-thumb;
+    }
+
+    input[type=range]::-ms-thumb {
+      @include range-thumb
+    }
+
+    &:hover {
+      input[type='range']::-webkit-slider-thumb {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__progress-fill {
+    @include fx1;
+    position: absolute;
+    left: 0;
+    height: 8px;
+    top: 0;
+    bottom: 0;
+    right: 5px;
+    width: 0;
+    pointer-events: none;
+    border-radius: 10px;
+  }
+
+  &__time {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+  }
+}
+
+.playlist {
+  margin-top: 20px;
+  max-width: 750px;
+
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid $color-accent1;
+    transition: 0.2s;
+    padding: 16px 12px 15px 10px;
+    cursor: pointer;
+    @include mobile() {
+      padding: 16px 12px 14px 10px;
+    }
+    @include tablet() {
+      padding: 16px 10px 14px 10px;
+    }
+
+    &:hover, &--active {
+      background-color: $color-accent6;
+
+      .playlist__item-title {
+        color: $color-accent1
+      }
+
+      .playlist__item-duration {
+        color: $color-accent3
+      }
+    }
+  }
+
+  &__item--active {
+    background-color: $color-accent4;
+    pointer-events: none;
+  }
+
+  &__item-title {
+    font-size: 20px;
+  }
+
+  &__item-duration {
+    font-size: 14px;
+  }
+}
+
+.plyr {
+  display: none;
+}
